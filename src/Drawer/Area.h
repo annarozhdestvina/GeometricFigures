@@ -17,13 +17,13 @@ public:
     Area(int rows = 32, int cols = 72): _rows{rows}, _cols{cols} {
         _area.resize(_rows);
         for(std::vector<char>& line : _area)
-            line.resize(_cols, ' ');
+            line.resize(_cols, '.');
     }
 
     void Print() const {
         for(const std::vector<char>& line : _area) {
             for(char i : line)
-                std::cout << i << ' ';
+                std::cout << i << '.';
             std::cout << '\n';
         }
     }

@@ -3,7 +3,7 @@ CFLAG=-std=c++17
 
 SOURCES=main.cpp
 SOURCES+=Circle/Circle.cpp
-# SOURCES+=Poligon/Poligon.cpp
+SOURCES+=Poligon/Poligon.cpp
 SOURCES+=Triangle/Triangle.cpp
 SOURCES+=Square/Square.cpp
 
@@ -11,7 +11,7 @@ HEADERS=FigureInterface.h
 HEADERS+=Point/Point.h
 HEADERS+=Poligon/Poligon.h
 HEADERS+=Circle/Circle.h
-# HEADERS+=Poligon/Poligon.h
+HEADERS+=Poligon/Poligon.h
 HEADERS+=Triangle/Triangle.h
 HEADERS+=Square/Square.h
 
