@@ -9,6 +9,7 @@ SOURCES+=Square/Square.cpp
 
 HEADERS=FigureInterface.h
 HEADERS+=Point/Point.h
+HEADERS+=Poligon/Poligon.h
 HEADERS+=Circle/Circle.h
 # HEADERS+=Poligon/Poligon.h
 HEADERS+=Triangle/Triangle.h

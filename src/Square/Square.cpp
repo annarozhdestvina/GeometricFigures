@@ -8,7 +8,7 @@ Square::Square(Point top_left, double side): _top_left{top_left}, _side{side}, _
 
 } 
 
-bool Square::Draw() const {
+bool Square::Draw(Area& area) const {
     if(_drawer)
         return _drawer->Draw(*this);
     return true;

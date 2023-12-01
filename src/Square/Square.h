@@ -14,7 +14,7 @@ private:
     
 public:
     Square(Point top_left, double side); 
-    bool Draw() const override;
+    bool Draw(Area& area) const override;
 
     friend class DrawerSquare;
 };

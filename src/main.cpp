@@ -6,11 +6,12 @@
 #include "Triangle/Triangle.h"
 #include "Square/Square.h"
 #include "Point/Point.h"
+#include "Drawer/Area.h"
 
 
-void DrawAll(const std::vector<FigureInterface*>& objects) {
+void DrawAll(const std::vector<FigureInterface*>& objects, Area& area) {
     for(const FigureInterface* i : objects) {
-        i->Draw();
+        i->Draw(area);
     }
 }
 
@@ -25,7 +26,9 @@ int main() {
     Circle c(4.5, 8.0, 7.0);
     objects.push_back(&c);
 
-    DrawAll(objects);
+    Area a1(15, 60);
+
+    DrawAll(objects, a1);
 
     // DrawShapes(&t);
 

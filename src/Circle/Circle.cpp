@@ -7,7 +7,7 @@ Circle::Circle(double x /* = 0.0*/, double y /* = 0.0*/, double r /* = 1.0*/): _
 
 }
 
-bool Circle::Draw() const {
+bool Circle::Draw(Area& area) const {
     if(_drawer)
         return _drawer->Draw(*this);
     

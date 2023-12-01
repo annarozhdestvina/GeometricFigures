@@ -14,7 +14,7 @@ private:
 
 public:
     Circle(double x = 0.0, double y = 0.0, double r = 1.0);
-    bool Draw() const override;
+    bool Draw(Area& area) const override;
     friend class DrawerCircle;
 };
 
