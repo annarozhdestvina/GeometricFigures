@@ -23,7 +23,7 @@ public:
     void Print() const {
         for(const std::vector<char>& line : _area) {
             for(char i : line)
-                std::cout << i << '.';
+                std::cout << i << ' ';
             std::cout << '\n';
         }
     }

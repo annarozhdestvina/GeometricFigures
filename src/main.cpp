@@ -20,6 +20,9 @@ int main() {
     Triangle t{Point{1.0, 1.0}, Point{35.5, 1.0}, Point{35.6, 8.8}};
     objects.push_back(&t);
 
+    Triangle t1{Point{1.0, 2.0}, Point{36.5, 2.0}, Point{36.6, 8.8}};
+    objects.push_back(&t1);
+
     // Square s{Point{0.0, 0.0}, 6.7};
     // objects.push_back(&s);
 
