@@ -23,8 +23,8 @@ int main() {
     // Square s{Point{0.0, 0.0}, 6.7};
     // objects.push_back(&s);
 
-    // Circle c(4.5, 8.0, 7.0);
-    // objects.push_back(&c);
+    Circle c(4.5, 8.0, 7.0);
+    objects.push_back(&c);
 
     Area a1(15, 60);
 

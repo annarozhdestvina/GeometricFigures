@@ -20,7 +20,7 @@ public:
 
 class DrawerCircle {
 public:
-    bool Draw(const Circle&) const;
+    bool Draw(const Circle&, Area& area) const;
 };
 
 
