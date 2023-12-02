@@ -16,7 +16,12 @@ int main() {
     Controller controller;
     ConsoleView view(&controller);
     view.startEventLoop();
-    
+
+
+    // todo : line  into line.cpp
+    // todo : areea interface
+    //todo : folder protocol with area interface
+    // todo : think of area implementation
 
 
     return 0;

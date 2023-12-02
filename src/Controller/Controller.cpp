@@ -34,7 +34,6 @@ void Controller::DrawAll(Area& area) {
     for(const std::unique_ptr<FigureInterface>& i : _objects) {
         i->Draw(area);
     }
-    area.Print();
 }
 
 void Controller::AddCircle() {

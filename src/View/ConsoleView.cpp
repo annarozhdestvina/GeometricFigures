@@ -47,7 +47,6 @@ void ConsoleView::startEventLoop()
 {
     while (true) 
     {
-        double result;
         displayMenu();
         switch (performChoice())
         {
@@ -70,6 +69,7 @@ void ConsoleView::startEventLoop()
         case Choice::DRAW:
         std::cout <<"Drawimng\n";
             _controller->DrawAll(_area);
+            _area.Print();
             break;
 
         case Choice::EXIT:
@@ -80,6 +80,5 @@ void ConsoleView::startEventLoop()
             continue;
         }
 
-        std::cout << "Current result is: " << result << std::endl;
     }
 }
