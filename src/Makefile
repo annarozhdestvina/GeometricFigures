@@ -7,6 +7,10 @@ SOURCES+=Model/Poligon/Poligon.cpp
 SOURCES+=Model/Triangle/Triangle.cpp
 SOURCES+=Model/Square/Square.cpp
 
+SOURCES+=Controller/Controller.cpp
+
+
+
 HEADERS=Model/FigureInterface.h
 HEADERS+=Model/Point/Point.h
 HEADERS+=Model/Poligon/Poligon.h
@@ -14,6 +18,8 @@ HEADERS+=Model/Circle/Circle.h
 HEADERS+=Model/Poligon/Poligon.h
 HEADERS+=Model/Triangle/Triangle.h
 HEADERS+=Model/Square/Square.h
+
+HEADERS+=Controller/Controller.h
 
 BINARIES=$(patsubst %.cpp,%.o,$(SOURCES))
 
@@ -32,3 +38,4 @@ clean:
 	rm -rf Model/Triangle/*.o
 	rm -rf Model/Square/*.o
 	rm -rf Model/Poligon/*.o
+	rm -rf Controller/*.o

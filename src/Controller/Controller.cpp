@@ -1,29 +1,38 @@
-#include "exampleController.h"
+#include "Controller.h"
+// #include <iostream>
+#include <vector>
 
-double ExampleController::add(double a)
-{
-    model->add(a);
-    return model->getData();
+#include "../Model/FigureInterface.h"
+#include "../Model/Circle/Circle.h"
+#include "../Model/Triangle/Triangle.h"
+#include "../Model/Square/Square.h"
+#include "../Model/Point/Point.h"
+#include "../Model/Drawer/Area.h"
+
+
+void Controller::AddAll() {
+    std::vector<FigureInterface*> objects;
+    Triangle t{Point{1.0, 1.0}, Point{35.5, 1.0}, Point{35.6, 8.8}};
+    objects.push_back(&t);
+
+    Triangle t1{Point{1.0, 2.0}, Point{36.5, 2.0}, Point{36.6, 8.8}};
+    objects.push_back(&t1);
+
+    // Square s{Point{0.0, 0.0}, 6.7};
+    // objects.push_back(&s);
+
+    Circle c(4.5, 8.0, 7.0);
+    objects.push_back(&c);
+
+    Area a1(15, 60);
+
+    DrawAll(objects, a1);
+    
+    a1.Print();
 }
 
-double ExampleController::sub(double a)
-{
-    model->add(-a);
-    return model->getData();
-}
-
-double ExampleController::mult(double a)
-{
-    model->mult(a);
-    return model->getData();
-}
-
-double ExampleController::div(double a)
-{
-    model->mult(1.0/a);
-    return model->getData();
-}
-
-void ExampleController::reset(){
-    model->reset();
+void Controller::DrawAll(const std::vector<FigureInterface*>& objects, Area& area) {
+    for(const FigureInterface* i : objects) {
+        i->Draw(area);
+    }
 }

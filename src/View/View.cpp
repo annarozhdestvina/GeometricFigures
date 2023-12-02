@@ -10,11 +10,10 @@ void ConsoleView::displayMenu()
     std::cout << "=========" << std::endl;
     std::cout << " M E N U " << std::endl;
     std::cout << "=========" << std::endl;
-    std::cout << "1. Add a number" << std::endl;
-    std::cout << "2. Subtract a number" << std::endl;
-    std::cout << "3. Multiplicate a number" << std::endl;
-    std::cout << "4. Divide a number" << std::endl;
-    std::cout << "5. Reset a number" << std::endl;
+    std::cout << "1. DRAW a CIRCLE" << std::endl;
+    std::cout << "2. DRAW a SQUARE" << std::endl;
+    std::cout << "3. DRAW a TRIANGLE" << std::endl;
+    std::cout << "4. CLEAN" << std::endl;
     std::cout << "0. Quit" << std::endl << std::endl;
 }
 

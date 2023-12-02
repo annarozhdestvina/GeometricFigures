@@ -3,15 +3,14 @@
 
 #include "exampleController.h"
 
-enum Choice
+enum class Choice
 {
-    SUM = 1,
-    SUB = 2,
-    MUL = 3,
-    DIV = 4,
-    RES = 5,
+    CIRCLE = 1,
+    SQUARE = 2,
+    TRIANGLE = 3,
+    CLEAN = 4,
     EXIT = 0,
-    NONE = -1
+    NONE = -1,
 };
 
 class ConsoleView

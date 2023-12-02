@@ -1,19 +1,16 @@
 #ifndef EXAMPLECONTROLLER_H
 #define EXAMPLECONTROLLER_H
 
-#include "exampleModel.h"
+// #include "exampleModel.h"
+#include <vector>
 
-class ExampleController 
-{
-    private:
-        ExampleModel *model;
-    public:
-        ExampleController(ExampleModel *m):model(m) {};
-        double add(double a);
-        double sub(double a);
-        double mult(double a);
-        double div(double a);
-        void reset();
+class Area;
+class FigureInterface;
+
+class Controller {
+public:
+    void AddAll();
+    void DrawAll(const std::vector<FigureInterface*>& objects, Area& area);
 };
 
 #endif
