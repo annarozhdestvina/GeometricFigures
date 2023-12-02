@@ -14,7 +14,7 @@ private:
 public:
     void AddAll();
 
-    void DrawAll(const std::vector<FigureInterface*>& objects, Area& area);
+    void DrawAll(Area& area);
 
     void AddCircle();
 

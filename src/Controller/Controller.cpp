@@ -30,10 +30,11 @@ void Controller::AddAll() {
     // a1.Print();
 }
 
-void Controller::DrawAll(const std::vector<FigureInterface*>& objects, Area& area) {
-    for(const FigureInterface* i : objects) {
+void Controller::DrawAll(Area& area) {
+    for(const std::unique_ptr<FigureInterface>& i : _objects) {
         i->Draw(area);
     }
+    area.Print();
 }
 
 void Controller::AddCircle() {

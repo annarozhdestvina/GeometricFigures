@@ -52,19 +52,24 @@ void ConsoleView::startEventLoop()
         switch (performChoice())
         {
         case Choice::CIRCLE:
-            controller->AddCircle();
+            _controller->AddCircle();
             break;
         
         case Choice::SQUARE:
-            controller->AddSquare();
+            _controller->AddSquare();
             break;
 
         case Choice::TRIANGLE:
-            controller->AddTriangle();
+            _controller->AddTriangle();
             break;
 
         case Choice::CLEAN:
             // controller->div(performNumericInput());
+            break;
+
+        case Choice::DRAW:
+        std::cout <<"Drawimng\n";
+            _controller->DrawAll(_area);
             break;
 
         case Choice::EXIT:
