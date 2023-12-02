@@ -1,14 +1,9 @@
 #include <iostream>
 #include <vector>
 
-#include "Model/FigureInterface.h"
-#include "Model/Circle/Circle.h"
-#include "Model/Triangle/Triangle.h"
-#include "Model/Square/Square.h"
-#include "Model/Point/Point.h"
-#include "Model/Drawer/Area.h"
-
 #include "Controller/Controller.h"
+
+#include "View/ConsoleView.h"
 
 
 // void DrawAll(const std::vector<FigureInterface*>& objects, Area& area) {
@@ -18,8 +13,9 @@
 // }
 
 int main() {
-   Controller controller;
-   controller.AddAll();
+    Controller controller;
+    ConsoleView view(&controller);
+    view.startEventLoop();
     
 
 
