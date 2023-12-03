@@ -9,6 +9,8 @@ SOURCES+=Model/Square/Square.cpp
 
 SOURCES+=Controller/Controller.cpp
 
+SOURCES+=Model/Drawer/Line.cpp
+
 SOURCES+=View/ConsoleView.cpp
 
 HEADERS=Model/FigureInterface.h

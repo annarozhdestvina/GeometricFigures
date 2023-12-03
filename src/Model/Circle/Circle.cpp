@@ -30,7 +30,7 @@ bool DrawerCircle::Draw(const Circle& object, Area& area) const {
 
             // if(distance from centre to point is between radius +- delta )
             if(object._radius - delta < distance && distance < object._radius + delta)
-                area.Get()[i][j] = '*';
+                area.Get(i, j) = '*';
         }
     }
     return true;

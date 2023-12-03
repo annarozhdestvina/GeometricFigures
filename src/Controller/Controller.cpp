@@ -47,7 +47,7 @@ void Controller::AddCircle() {
     сам в своем деструкторе. Поэтому вектор не указателей, а вектор умных указателей.
     */
     // std::unique_ptr<Circle> c(make_unique<Circle> (4.5, 8.0, 7.0));
-    std::unique_ptr<FigureInterface> c(new Circle(4.5, 8.0, 7.0));
+    std::unique_ptr<FigureInterface> c(new Circle(6.5, 8.0, 5.0));
     _objects.push_back(std::move(c));    
 }
 
@@ -60,4 +60,9 @@ void Controller::AddTriangle() {
     std::unique_ptr<FigureInterface> t(new Triangle(Point{1.0, 1.0}, Point{35.5, 1.0}, Point{35.6, 8.8}));
     _objects.push_back(std::move(t));
 
+}
+
+void Controller::Clean(Area& area) {
+    area.Clean();
+    _objects.clear();
 }

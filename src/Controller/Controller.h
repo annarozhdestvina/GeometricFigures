@@ -21,6 +21,8 @@ public:
     void AddSquare();
 
     void AddTriangle();
+
+    void Clean(Area &area);
 };
 
 #endif

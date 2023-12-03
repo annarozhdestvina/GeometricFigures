@@ -63,7 +63,7 @@ void ConsoleView::startEventLoop()
             break;
 
         case Choice::CLEAN:
-            // controller->div(performNumericInput());
+            _controller->Clean(_area);
             break;
 
         case Choice::DRAW:

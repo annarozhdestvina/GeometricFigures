@@ -4,8 +4,10 @@
 #include <vector>
 #include <iostream>
 
+#include "../../Protocol/AreaInterface.h"
 
-class Area {
+
+class Area : public AreaInterface {
     using Plot2D_t = std::vector<std::vector<char> >;
 
 private:
@@ -28,16 +30,36 @@ public:
         }
     }
 
-    int GetRows() const {
+    int GetRows() const override {
         return _rows;
     }
 
-    int GetCols() const {
+    int GetCols() const override {
         return _cols;
     }
 
-    Plot2D_t& Get() {
-        return _area;
+    char& Get(int row, int col) override {
+        assert(row < _area.size() && "row is out range" );
+
+        if(_area.size())
+            assert(col < _area[0].size() && "col is out range" ); 
+
+        return _area[row][col];
+    }
+
+    char Get(int row, int col) const override{
+        assert(row < _area.size() && "row is out range" );
+
+        if(_area.size())
+            assert(col < _area[0].size() && "col is out range" ); 
+
+        return _area[row][col];
+    }
+
+    void Clean() override {
+        for(std::vector<char>& line : _area) 
+            for(char& i : line)
+                i = '.';
     }
 };
 
