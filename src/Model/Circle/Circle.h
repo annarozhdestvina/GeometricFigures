@@ -1,7 +1,7 @@
 #ifndef CIRCLE_CIRCLE_H
 #define CIRCLE_CIRCLE_H
 
-#include "../FigureInterface.h"
+#include "../../FigureInterface.h"
 #include "../Point/Point.h"
 
 class DrawerCircle;

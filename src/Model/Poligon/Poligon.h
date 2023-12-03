@@ -1,7 +1,7 @@
 #ifndef POLIGON_H
 #define POLIGON_H
 
-#include "../FigureInterface.h"
+#include "../../FigureInterface.h"
 #include "../Point/Point.h"
 #include <vector>
 #include <initializer_list>

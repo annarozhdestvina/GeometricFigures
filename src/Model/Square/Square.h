@@ -1,7 +1,7 @@
 #ifndef SQ_H
 #define SQ_H
 
-#include "../FigureInterface.h"
+#include "../../FigureInterface.h"
 #include "../Point/Point.h"
 
 class DrawerSquare;
