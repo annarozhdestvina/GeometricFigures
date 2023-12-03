@@ -10,6 +10,7 @@ SOURCES+=Model/Square/Square.cpp
 SOURCES+=Controller/Controller.cpp
 
 SOURCES+=Model/Drawer/Line.cpp
+SOURCES+=Model/Drawer/Area.cpp
 
 SOURCES+=View/ConsoleView.cpp
 
@@ -24,6 +25,9 @@ HEADERS+=Model/Square/Square.h
 HEADERS+=Controller/Controller.h
 
 HEADERS+=View/ConsoleView.h
+
+HEADERS+=Model/Drawer/Area.h
+HEADERS+=Model/Drawer/Line.h
 
 BINARIES=$(patsubst %.cpp,%.o,$(SOURCES))
 

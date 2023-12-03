@@ -16,51 +16,19 @@ private:
     Plot2D_t _area;
 
 public:
-    Area(int rows = 32, int cols = 72): _rows{rows}, _cols{cols} {
-        _area.resize(_rows);
-        for(std::vector<char>& line : _area)
-            line.resize(_cols, '.');
-    }
+    Area(int rows = 32, int cols = 72);
 
-    void Print() const {
-        for(const std::vector<char>& line : _area) {
-            for(char i : line)
-                std::cout << i << ' ';
-            std::cout << '\n';
-        }
-    }
+    void Print() const;
 
-    int GetRows() const override {
-        return _rows;
-    }
+    int GetRows() const override;
 
-    int GetCols() const override {
-        return _cols;
-    }
+    int GetCols() const override;
 
-    char& Get(int row, int col) override {
-        assert(row < _area.size() && "row is out range" );
+    char& Get(int row, int col) override;
 
-        if(_area.size())
-            assert(col < _area[0].size() && "col is out range" ); 
+    char Get(int row, int col) const override;
 
-        return _area[row][col];
-    }
-
-    char Get(int row, int col) const override{
-        assert(row < _area.size() && "row is out range" );
-
-        if(_area.size())
-            assert(col < _area[0].size() && "col is out range" ); 
-
-        return _area[row][col];
-    }
-
-    void Clean() override {
-        for(std::vector<char>& line : _area) 
-            for(char& i : line)
-                i = '.';
-    }
+    void Clean() override;
 };
 
 #endif // AREA_H
