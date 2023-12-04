@@ -5,35 +5,10 @@
 
 #include "View/ConsoleView.h"
 
-
-// void DrawAll(const std::vector<FigureInterface*>& objects, Area& area) {
-//     for(const FigureInterface* i : objects) {
-//         i->Draw(area);
-//     }
-// }
-
 int main() {
     Controller controller;
     ConsoleView view(&controller);
     view.startEventLoop();
 
     return 0;
-    // todo : line  into line.cpp
-
-    // todo : areea interface
-    // todo : folder protocol with area interface
-    // todo : think of area implementation
-
-
-    return 0;
 }
-
-// #include "consoleView.h"
-
-// int main() {
-//     ExampleModel model;
-//     ExampleController controller(&model);
-//     ConsoleView view(&controller);
-//     view.startEventLoop();
-//     return 1;
-// }

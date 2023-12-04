@@ -12,8 +12,8 @@ Triangle::Triangle(Point a, Point b, Point c): _a(a), _b(b), _c(c), _defaultDraw
 }
 
 
-bool Triangle::Draw(Area& area, const DrawerInterface* drawer) const{
-   if (drawer) 
+bool Triangle::Draw(AreaInterface& area, const DrawerInterface* drawer) const{
+    if (drawer) 
         return drawer->Draw(this, area);
         
     if (_defaultDrawer) 
@@ -22,7 +22,7 @@ bool Triangle::Draw(Area& area, const DrawerInterface* drawer) const{
     return false;
 }
 
-bool DrawerTriangle::Draw(const FigureInterface* object, Area& area) {
+bool DrawerTriangle::Draw(const FigureInterface* object, AreaInterface& area) {
     
     if(const Triangle* triangle = dynamic_cast<const Triangle*>(object)) {
         Drawer::Line(triangle->_a, triangle->_b, area);

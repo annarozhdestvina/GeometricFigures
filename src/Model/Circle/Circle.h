@@ -15,13 +15,13 @@ private:
 
 public:
     Circle(double x = 0.0, double y = 0.0, double r = 1.0);
-    bool Draw(Area& area, const DrawerInterface* = nullptr) const override;
+    bool Draw(AreaInterface& area, const DrawerInterface* = nullptr) const override;
     friend class DrawerCircle;
 };
 
 class DrawerCircle : public DrawerInterface {
 public:
-    bool Draw(const FigureInterface* object, Area& area) const override;
+    bool Draw(const FigureInterface* object, AreaInterface& area) const override;
 };
 
 

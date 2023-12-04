@@ -10,22 +10,21 @@
 
 namespace Drawer {
 
-Line::Line(const Point& a, const Point& b, Area& area) {
-    // assert(a._x <= area.GetCols() && "inappropriate x");
-    // assert(a._y <= area.GetRows() && "inappropriate y");
+Line::Line(const Point& a, const Point& b, AreaInterface& area) {
+    assert(a._x <= area.GetCols() && "inappropriate x");
+    assert(a._y <= area.GetRows() && "inappropriate y");
 
-    // assert(a._x > 0 && "inappropriate x");
-    // assert(a._y > 0  && "inappropriate y");
-
-    // assert(a._x != b._x && "zero division");
-
+    assert(a._x > 0 && "inappropriate x");
+    assert(a._y > 0  && "inappropriate y");
+    
     if(isHorizontal(a, b))
         horizontal(a, b, area);
     else
         vertical(a, b, area);
 } 
 
-void Line::horizontal(const Point& a, const Point& b, Area& area) {
+void Line::horizontal(const Point& a, const Point& b, AreaInterface& area) {
+    assert(std::abs(b._x - a._x) > 1e-12 && "zero division");
     const int x_steps = std::abs(a._x - b._x);
     const int x_start = a._x < b._x ? a._x : b._x;
     const int x_finish = a._x > b._x ? a._x : b._x;
@@ -37,7 +36,8 @@ void Line::horizontal(const Point& a, const Point& b, Area& area) {
     } 
 }
 
-void Line::vertical(const Point& a, const Point& b, Area& area) {
+void Line::vertical(const Point& a, const Point& b, AreaInterface& area) {
+    assert(std::abs(b._y - a._y) > 1e-12 && "zero division");
     const int y_steps = std::abs(a._y - b._y);
     const int y_start = a._y < b._y ? a._y : b._y;
     const int y_finish = a._y > b._y ? a._y : b._y;

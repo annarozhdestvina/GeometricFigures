@@ -15,7 +15,7 @@ double getDistance(double x1, double y1, double x2, double y2) {
     return std::sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
 }
 
-bool Circle::Draw(Area& area, const DrawerInterface* drawer) const {
+bool Circle::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
     if (drawer) 
         return drawer->Draw(this, area);
         
@@ -25,7 +25,7 @@ bool Circle::Draw(Area& area, const DrawerInterface* drawer) const {
     return false;
 }
 
-bool DrawerCircle::Draw(const FigureInterface* object, Area& area) const {
+bool DrawerCircle::Draw(const FigureInterface* object, AreaInterface& area) const {
     static constexpr double delta = 0.4;
 
     if (const Circle* circle = dynamic_cast<const Circle*>(object)) {
@@ -33,7 +33,6 @@ bool DrawerCircle::Draw(const FigureInterface* object, Area& area) const {
             for(int j = 0; j < area.GetCols(); ++j) {
                 const double distance = getDistance(circle->_center._x, circle->_center._y, i, j);
 
-                // if(distance from centre to point is between radius +- delta )
                 if(circle->_radius - delta < distance && distance < circle->_radius + delta)
                     area.Get(i, j) = '*';
             }

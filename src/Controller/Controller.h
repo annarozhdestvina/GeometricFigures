@@ -5,7 +5,7 @@
 #include <vector>
 #include <memory>
 #include "../Model/FigureInterface.h"
-class Area;
+// class Area;
 // class FigureInterface;
 
 class Controller {
@@ -14,7 +14,7 @@ private:
 public:
     void AddAll();
 
-    void DrawAll(Area& area);
+    void DrawAll(AreaInterface& area);
 
     void AddCircle();
 
@@ -22,7 +22,7 @@ public:
 
     void AddTriangle();
 
-    void Clean(Area &area);
+    void Clean();
 };
 
 #endif

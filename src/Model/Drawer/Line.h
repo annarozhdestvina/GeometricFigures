@@ -7,19 +7,19 @@
 
 #include "../Point/Point.h"
 
-class Area;
+class AreaInterface;
 
 namespace Drawer {
    
 class Line {
 
 public:
-    Line(const Point& a, const Point& b, Area& area);
+    Line(const Point& a, const Point& b, AreaInterface& area);
 
 private:
-    void horizontal(const Point& a, const Point& b, Area& area);
+    void horizontal(const Point& a, const Point& b, AreaInterface& area);
 
-    void vertical(const Point& a, const Point& b, Area& area);
+    void vertical(const Point& a, const Point& b, AreaInterface& area);
 
     bool isHorizontal(const Point& a, const Point& b); 
 }; 

@@ -7,7 +7,7 @@
 #include "../Model/Triangle/Triangle.h"
 #include "../Model/Square/Square.h"
 #include "../Model/Point/Point.h"
-#include "../Model/Drawer/Area.h"
+#include "../Protocol/AreaInterface.h"
 
 
 void Controller::AddAll() {
@@ -30,39 +30,27 @@ void Controller::AddAll() {
     // a1.Print();
 }
 
-void Controller::DrawAll(Area& area) {
+void Controller::DrawAll(AreaInterface& area) {
     for(const std::unique_ptr<FigureInterface>& i : _objects) {
         i->Draw(area);
     }
 }
 
 void Controller::AddCircle() {
-    /*
-    Сначала был вектор указателей. И указатель указывал на локальную переменную  Circle c(4.5, 8.0, 7.0). Рисовалось это в другом методе,
-    то есть к моменту отрисовки Circle c выйдет из области видимости как локальная переменная, а указатель в векторе останется указывать на
-    этот Circle c. 
-    Решение 1: использовать динамическое выделение памяти. Но тогда при разрушении вектора нужно сначала освободить память, на которую указывали
-    элементы вектора (элементы вектора - указатели)
-    Решение 2: использовать динамическое выделение памяти, с контролем за освобождением при помощи умного указателя. Умный указатель освободит память 
-    сам в своем деструкторе. Поэтому вектор не указателей, а вектор умных указателей.
-    */
-    // std::unique_ptr<Circle> c(make_unique<Circle> (4.5, 8.0, 7.0));
-    std::unique_ptr<FigureInterface> c(new Circle(6.5, 8.0, 5.0));
+    std::unique_ptr<FigureInterface> c(std::make_unique<Circle>(6.5, 8.0, 5.0));
     _objects.push_back(std::move(c));    
 }
 
 void Controller::AddSquare() {
-    std::unique_ptr<FigureInterface> s(new Square(Point{40.0, 3.0}, Point{40.0, 16.0}, Point{56.0, 16.0}, Point{56.0, 3.0}));
+    std::unique_ptr<FigureInterface> s(std::make_unique<Square>(Point{40.0, 3.0}, Point{40.0, 16.0}, Point{56.0, 16.0}, Point{56.0, 3.0}));
     _objects.push_back(std::move(s));
 }
 
 void Controller::AddTriangle() {
-    std::unique_ptr<FigureInterface> t(new Triangle(Point{1.0, 1.0}, Point{35.5, 1.0}, Point{35.6, 8.8}));
+    std::unique_ptr<FigureInterface> t(std::make_unique<Triangle>(Point{1.0, 1.0}, Point{35.5, 1.0}, Point{35.6, 8.8}));
     _objects.push_back(std::move(t));
-
 }
 
-void Controller::Clean(Area& area) {
-    area.Clean();
+void Controller::Clean() {
     _objects.clear();
 }

@@ -9,15 +9,14 @@ enum class Choice : char;
 
 class ConsoleView
 {
-    private:
-        Controller *_controller;
-        Area _area;
-    public:
-        ConsoleView(Controller *c): _controller(c), _area(20, 60) {};
-        void displayMenu();
-        Choice performChoice();
-        double performNumericInput();
-        void startEventLoop();
+private:
+    Controller *_controller;
+    Area _area;
+public:
+    ConsoleView(Controller *c): _controller(c), _area(20, 60) {};
+    void displayMenu();
+    Choice performChoice();
+    void startEventLoop();
 };
 
 #endif

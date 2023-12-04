@@ -16,7 +16,7 @@ Square::Square(Point a, Point b, Point c, Point d): _a(a), _b(b), _c(c), _d(d), 
 
 // } 
 
-bool Square::Draw(Area& area, const DrawerInterface* drawer) const {
+bool Square::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
     if (drawer) 
         return drawer->Draw(this, area);
         
@@ -26,7 +26,7 @@ bool Square::Draw(Area& area, const DrawerInterface* drawer) const {
     return false;
 }
 
-bool DrawerSquare::Draw(const FigureInterface* object, Area& area) const {
+bool DrawerSquare::Draw(const FigureInterface* object, AreaInterface& area) const {
    if(const Square* triangle = dynamic_cast<const Square*>(object)) {
         Drawer::Line(triangle->_a, triangle->_b, area);
         Drawer::Line(triangle->_b, triangle->_c, area);

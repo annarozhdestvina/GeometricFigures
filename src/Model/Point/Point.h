@@ -1,7 +1,6 @@
 #ifndef Point_H
 #define Point_H
 
-// просто для использования полей, поэтому struct
 struct Point {  
     double _x;
     double _y;

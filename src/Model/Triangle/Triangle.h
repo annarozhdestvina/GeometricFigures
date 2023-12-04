@@ -13,7 +13,7 @@ public:
     Point _b;
     Point _c;
     Triangle(Point a = Point(), Point b = Point(3.5, 3.0), Point c = Point(4.5, 7.0));
-    bool Draw(Area& area, const DrawerInterface* = nullptr) const override;
+    bool Draw(AreaInterface& area, const DrawerInterface* = nullptr) const override;
 
 private:
     DrawerTriangle* _defaultDrawer;
@@ -24,7 +24,7 @@ public:
 
 class DrawerTriangle {
 public:
-    bool Draw(const FigureInterface* object, Area& area);
+    bool Draw(const FigureInterface* object, AreaInterface& area);
 };
 
 

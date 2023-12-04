@@ -4,15 +4,14 @@
 
 enum class Choice : char
 {
-    CIRCLE = 1,
-    SQUARE = 2,
-    TRIANGLE = 3,
-    DRAW = 4,
-    CLEAN = 5,
-    EXIT = 0,
-    NONE = -1,
+    CIRCLE      = 1,
+    SQUARE      = 2,
+    TRIANGLE    = 3,
+    DRAW        = 4,
+    CLEAN       = 5,
+    EXIT        = 0,
+    NONE        = -1,
 };
-
 
 void ConsoleView::displayMenu()
 {
@@ -35,14 +34,6 @@ Choice ConsoleView::performChoice()
     return static_cast<Choice>(number);
 } 
 
-double ConsoleView::performNumericInput()
-{    
-    double number;
-    std::cout << "Input a decimal number: ";
-    std::cin >> number;
-    return number;
-} 
-
 void ConsoleView::startEventLoop()
 {
     while (true) 
@@ -63,11 +54,11 @@ void ConsoleView::startEventLoop()
             break;
 
         case Choice::CLEAN:
-            _controller->Clean(_area);
+            _controller->Clean();
+            _area.Clean();
             break;
 
         case Choice::DRAW:
-        std::cout <<"Drawimng\n";
             _controller->DrawAll(_area);
             _area.Print();
             break;
