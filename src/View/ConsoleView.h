@@ -13,7 +13,7 @@ class ConsoleView
         Controller *_controller;
         Area _area;
     public:
-        ConsoleView(Controller *c): _controller(c), _area(15, 60) {};
+        ConsoleView(Controller *c): _controller(c), _area(20, 60) {};
         void displayMenu();
         Choice performChoice();
         double performNumericInput();

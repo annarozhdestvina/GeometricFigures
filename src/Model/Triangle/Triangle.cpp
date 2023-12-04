@@ -3,27 +3,33 @@
 
 #include "../Drawer/Area.h"
 #include "../Drawer/Line.h"
+#include "../Drawer/DrawerInterface.h"
 
 static DrawerTriangle s_drawerTriangle;
 
-Triangle::Triangle(Point a, Point b, Point c): Poligon{{a, b, c}}, _drawer{&s_drawerTriangle}  {
+Triangle::Triangle(Point a, Point b, Point c): _a(a), _b(b), _c(c), _defaultDrawer{&s_drawerTriangle}  {
     
 }
 
 
-bool Triangle::Draw(Area& area) const{
-    if(_drawer)
-        return _drawer->Draw(*this, area);
-
+bool Triangle::Draw(Area& area, const DrawerInterface* drawer) const{
+   if (drawer) 
+        return drawer->Draw(this, area);
+        
+    if (_defaultDrawer) 
+        return _defaultDrawer->Draw(this, area);
+    
     return false;
 }
 
-bool DrawerTriangle::Draw(const Triangle& object, Area& area) {
-    assert(object._vertices.size() == 3 && "wrong number of vertices");
-    Drawer::Line(object._vertices[0], object._vertices[1], area);
-    Drawer::Line(object._vertices[1], object._vertices[2], area);
-    Drawer::Line(object._vertices[2], object._vertices[0], area);
-
-    return true;
+bool DrawerTriangle::Draw(const FigureInterface* object, Area& area) {
+    
+    if(const Triangle* triangle = dynamic_cast<const Triangle*>(object)) {
+        Drawer::Line(triangle->_a, triangle->_b, area);
+        Drawer::Line(triangle->_b, triangle->_c, area);
+        Drawer::Line(triangle->_c, triangle->_a, area);
+        return true;
+    }
+    return false;
 }
 

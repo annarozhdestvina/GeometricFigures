@@ -11,13 +11,13 @@
 namespace Drawer {
 
 Line::Line(const Point& a, const Point& b, Area& area) {
-    assert(a._x <= area.GetCols() && "inappropriate x");
-    assert(a._y <= area.GetRows() && "inappropriate y");
+    // assert(a._x <= area.GetCols() && "inappropriate x");
+    // assert(a._y <= area.GetRows() && "inappropriate y");
 
-    assert(a._x > 0 && "inappropriate x");
-    assert(a._y > 0  && "inappropriate y");
+    // assert(a._x > 0 && "inappropriate x");
+    // assert(a._y > 0  && "inappropriate y");
 
-    assert(a._x != b._x && "zero division");
+    // assert(a._x != b._x && "zero division");
 
     if(isHorizontal(a, b))
         horizontal(a, b, area);

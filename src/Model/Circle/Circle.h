@@ -3,6 +3,7 @@
 
 #include "../FigureInterface.h"
 #include "../Point/Point.h"
+#include "../Drawer/DrawerInterface.h"
 
 class DrawerCircle;
 
@@ -10,17 +11,17 @@ class Circle : public FigureInterface {
 private:
     Point _center;
     double _radius;
-    DrawerCircle* _drawer;
+    DrawerCircle* _defaultDrawer;
 
 public:
     Circle(double x = 0.0, double y = 0.0, double r = 1.0);
-    bool Draw(Area& area) const override;
+    bool Draw(Area& area, const DrawerInterface* = nullptr) const override;
     friend class DrawerCircle;
 };
 
-class DrawerCircle {
+class DrawerCircle : public DrawerInterface {
 public:
-    bool Draw(const Circle&, Area& area) const;
+    bool Draw(const FigureInterface* object, Area& area) const override;
 };
 
 

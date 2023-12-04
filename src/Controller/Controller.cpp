@@ -52,7 +52,7 @@ void Controller::AddCircle() {
 }
 
 void Controller::AddSquare() {
-    std::unique_ptr<FigureInterface> s(new Square(Point{0.0, 0.0}, 6.7));
+    std::unique_ptr<FigureInterface> s(new Square(Point{40.0, 3.0}, Point{40.0, 16.0}, Point{56.0, 16.0}, Point{56.0, 3.0}));
     _objects.push_back(std::move(s));
 }
 

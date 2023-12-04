@@ -3,25 +3,28 @@
 
 #include "../FigureInterface.h"
 #include "../Point/Point.h"
+#include "../Drawer/DrawerInterface.h"
 
 class DrawerSquare;
 
 class Square : public FigureInterface {  
-private:
-    Point _top_left;
-    double _side;
-    DrawerSquare* _drawer;
-    
 public:
-    Square(Point top_left, double side); 
-    bool Draw(Area& area) const override;
-
+    Point _a;
+    Point _b;
+    Point _c;
+    Point _d;
+    Square(Point a = Point(), Point b = Point(3.5, 3.0), Point c = Point(3.5, 7.0), Point d = Point(15.5, 7.0)); 
+    bool Draw(Area& area, const DrawerInterface* = nullptr) const override;
+    
     friend class DrawerSquare;
+
+private:
+    DrawerSquare* _defaultDrawer;
 };
 
-class DrawerSquare {
+class DrawerSquare : public DrawerInterface{
 public:
-    bool Draw(const Square&) const;
+    bool Draw(const FigureInterface* object, Area& area) const override;
 };
 
 

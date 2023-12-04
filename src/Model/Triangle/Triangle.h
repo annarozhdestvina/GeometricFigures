@@ -1,37 +1,30 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-#include "../Poligon/Poligon.h"
-
-enum TriangleType {
-    isosceles,
-    rectanglar,
-    general,
-};
+// #include "../Poligon/Poligon.h"
+#include "../FigureInterface.h"
+#include "../Point/Point.h"
 
 class DrawerTriangle;
 
-class Triangle : public Poligon {  
+class Triangle : public FigureInterface {  
 public:
+    Point _a;
+    Point _b;
+    Point _c;
     Triangle(Point a = Point(), Point b = Point(3.5, 3.0), Point c = Point(4.5, 7.0));
-    bool Draw(Area& area) const override;
+    bool Draw(Area& area, const DrawerInterface* = nullptr) const override;
 
 private:
-    TriangleType _type;
-
-    DrawerTriangle* _drawer;
+    DrawerTriangle* _defaultDrawer;
     
 public:
-    TriangleType GetType() const {
-        return _type;
-    }
-
     friend class DrawerTriangle;
 };
 
 class DrawerTriangle {
 public:
-    bool Draw(const Triangle& object, Area& area);
+    bool Draw(const FigureInterface* object, Area& area);
 };
 
 
