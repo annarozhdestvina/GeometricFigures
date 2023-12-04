@@ -1,7 +1,6 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-// #include "../Poligon/Poligon.h"
 #include "../FigureInterface.h"
 #include "../Point/Point.h"
 

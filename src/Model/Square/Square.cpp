@@ -10,11 +10,6 @@ static DrawerSquare s_drawerSquare;
 Square::Square(Point a, Point b, Point c, Point d): _a(a), _b(b), _c(c), _d(d), _defaultDrawer{&s_drawerSquare}  {
     
 }
-// static DrawerSquare s_drawerSquare;
-
-// Square::Square(Point top_left, double side): _top_left{top_left}, _side{side}, _drawer{&s_drawerSquare} {
-
-// } 
 
 bool Square::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
     if (drawer) 
