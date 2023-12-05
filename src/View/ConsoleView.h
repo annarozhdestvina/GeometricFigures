@@ -1,22 +1,28 @@
 #ifndef CONSOLEVIEW_H
 #define CONSOLEVIEW_H
 
-#include "../Model/Drawer/Area.h"
+#include "../Protocol/Area.h"
 
+namespace controller {
 class Controller;
+}
+
+namespace view {
 
 enum class Choice : char;
 
 class ConsoleView
 {
 private:
-    Controller *_controller;
-    Area _area;
+    controller::Controller *_controller;
+    protocol::Area _area;
 public:
-    ConsoleView(Controller *c): _controller(c), _area(20, 60) {};
+    ConsoleView(controller::Controller *c): _controller(c), _area(20, 60) {};
     void displayMenu();
     Choice performChoice();
     void startEventLoop();
 };
+
+} // namespace view
 
 #endif

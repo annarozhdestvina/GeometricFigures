@@ -2,6 +2,8 @@
 #include "ConsoleView.h"
 #include "../Controller/Controller.h"
 
+namespace view {
+
 enum class Choice : char
 {
     CIRCLE      = 1,
@@ -73,3 +75,5 @@ void ConsoleView::startEventLoop()
 
     }
 }
+
+} // namespace view

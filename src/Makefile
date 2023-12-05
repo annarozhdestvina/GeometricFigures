@@ -1,5 +1,5 @@
 CC=g++
-CFLAG=-std=c++17
+CFLAG=-std=c++17 -Werror -Wall -Wextra
 
 SOURCES=main.cpp
 SOURCES+=Model/Circle/Circle.cpp
@@ -9,7 +9,8 @@ SOURCES+=Model/Square/Square.cpp
 SOURCES+=Controller/Controller.cpp
 
 SOURCES+=Model/Drawer/Line.cpp
-SOURCES+=Model/Drawer/Area.cpp
+
+SOURCES+=Protocol/Area.cpp
 
 SOURCES+=View/ConsoleView.cpp
 
@@ -23,7 +24,9 @@ HEADERS+=Controller/Controller.h
 
 HEADERS+=View/ConsoleView.h
 
-HEADERS+=Model/Drawer/Area.h
+HEADERS+=Protocol/Area.h
+HEADERS+=Protocol/AreaInterface.h
+
 HEADERS+=Model/Drawer/Line.h
 
 BINARIES=$(patsubst %.cpp,%.o,$(SOURCES))
@@ -42,3 +45,4 @@ clean:
 	rm -rf Model/*/*.o
 	rm -rf Controller/*.o
 	rm -rf View/*.o
+	rm -rf Protocol/*.o

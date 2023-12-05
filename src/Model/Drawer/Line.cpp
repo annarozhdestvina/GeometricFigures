@@ -5,11 +5,11 @@
 #include <cassert>
 
 #include "../Point/Point.h"
-#include "Area.h"
+#include "../../Protocol/AreaInterface.h"
 
-namespace Drawer {
+namespace drawer {
 
-Line::Line(const Point& a, const Point& b, AreaInterface& area) {
+Line::Line(const Point& a, const Point& b, protocol::AreaInterface& area) {
     assert(a._x <= area.GetCols() && "inappropriate x");
     assert(a._y <= area.GetRows() && "inappropriate y");
 
@@ -22,9 +22,8 @@ Line::Line(const Point& a, const Point& b, AreaInterface& area) {
         vertical(a, b, area);
 } 
 
-void Line::horizontal(const Point& a, const Point& b, AreaInterface& area) {
+void Line::horizontal(const Point& a, const Point& b, protocol::AreaInterface& area) {
     assert(std::abs(b._x - a._x) > 1e-12 && "zero division");
-    const int x_steps = std::abs(a._x - b._x);
     const int x_start = a._x < b._x ? a._x : b._x;
     const int x_finish = a._x > b._x ? a._x : b._x;
     for(int x = x_start; x < x_finish; ++x) {
@@ -35,9 +34,8 @@ void Line::horizontal(const Point& a, const Point& b, AreaInterface& area) {
     } 
 }
 
-void Line::vertical(const Point& a, const Point& b, AreaInterface& area) {
+void Line::vertical(const Point& a, const Point& b, protocol::AreaInterface& area) {
     assert(std::abs(b._y - a._y) > 1e-12 && "zero division");
-    const int y_steps = std::abs(a._y - b._y);
     const int y_start = a._y < b._y ? a._y : b._y;
     const int y_finish = a._y > b._y ? a._y : b._y;
     for(int y = y_start; y < y_finish; ++y) {
@@ -53,5 +51,5 @@ bool Line::isHorizontal(const Point& a, const Point& b) {
 }
 
 
-} // namespace Drawer
+} // namespace drawer
 

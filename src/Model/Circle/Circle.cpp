@@ -2,8 +2,10 @@
 #include <cmath>
 
 #include "Circle.h"
-#include "../Drawer/Area.h"
+#include "../../Protocol/AreaInterface.h"
 #include "../Drawer/DrawerInterface.h"
+
+namespace model {
 
 static DrawerCircle s_drawerCircle;
 
@@ -15,7 +17,7 @@ double getDistance(double x1, double y1, double x2, double y2) {
     return std::sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
 }
 
-bool Circle::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
+bool Circle::Draw(protocol::AreaInterface& area, const DrawerInterface* drawer) const {
     if (drawer) 
         return drawer->Draw(this, area);
         
@@ -25,7 +27,7 @@ bool Circle::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
     return false;
 }
 
-bool DrawerCircle::Draw(const FigureInterface* object, AreaInterface& area) const {
+bool DrawerCircle::Draw(const FigureInterface* object, protocol::AreaInterface& area) const {
     static constexpr double delta = 0.4;
 
     if (const Circle* circle = dynamic_cast<const Circle*>(object)) {
@@ -41,3 +43,5 @@ bool DrawerCircle::Draw(const FigureInterface* object, AreaInterface& area) cons
     }
     return false;
 }
+
+} // namespace model

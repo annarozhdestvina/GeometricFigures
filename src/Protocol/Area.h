@@ -4,8 +4,9 @@
 #include <vector>
 #include <iostream>
 
-#include "../../Protocol/AreaInterface.h"
+#include "AreaInterface.h"
 
+namespace protocol {
 
 class Area : public AreaInterface {
     using Plot2D_t = std::vector<std::vector<char> >;
@@ -30,5 +31,7 @@ public:
 
     void Clean() override;
 };
+
+} // protocol
 
 #endif // AREA_H

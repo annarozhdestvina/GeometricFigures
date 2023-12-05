@@ -1,9 +1,11 @@
 #include "Square.h"
 #include <iostream>
 
-#include "../Drawer/Area.h"
+#include "../../Protocol/AreaInterface.h"
 #include "../Drawer/Line.h"
 #include "../Drawer/DrawerInterface.h"
+
+namespace model {
 
 static DrawerSquare s_drawerSquare;
 
@@ -11,7 +13,7 @@ Square::Square(Point a, Point b, Point c, Point d): _a(a), _b(b), _c(c), _d(d), 
     
 }
 
-bool Square::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
+bool Square::Draw(protocol::AreaInterface& area, const DrawerInterface* drawer) const {
     if (drawer) 
         return drawer->Draw(this, area);
         
@@ -21,13 +23,15 @@ bool Square::Draw(AreaInterface& area, const DrawerInterface* drawer) const {
     return false;
 }
 
-bool DrawerSquare::Draw(const FigureInterface* object, AreaInterface& area) const {
+bool DrawerSquare::Draw(const FigureInterface* object, protocol::AreaInterface& area) const {
    if(const Square* triangle = dynamic_cast<const Square*>(object)) {
-        Drawer::Line(triangle->_a, triangle->_b, area);
-        Drawer::Line(triangle->_b, triangle->_c, area);
-        Drawer::Line(triangle->_c, triangle->_d, area);
-        Drawer::Line(triangle->_d, triangle->_a, area);
+        drawer::Line(triangle->_a, triangle->_b, area);
+        drawer::Line(triangle->_b, triangle->_c, area);
+        drawer::Line(triangle->_c, triangle->_d, area);
+        drawer::Line(triangle->_d, triangle->_a, area);
         return true;
     }
     return false;
 }
+
+}  // namespace model

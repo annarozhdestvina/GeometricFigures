@@ -1,8 +1,9 @@
 #include <vector>
 #include <iostream>
 
-#include "../../Protocol/AreaInterface.h"
 #include "Area.h"
+
+namespace protocol {
 
 Area::Area(int rows /*= 32*/, int cols /*= 72*/): _rows{rows}, _cols{cols} {
     _area.resize(_rows);
@@ -27,19 +28,23 @@ int Area::GetCols() const {
 }
 
 char& Area::Get(int row, int col)  {
-    assert(row < _area.size() && "row is out range" );
+    assert(row >= 0 && "negative row");
+    assert(col >= 0 && "negative col");
+    assert(static_cast<unsigned>(row) < _area.size() && "row is out range" );
 
     if(_area.size())
-        assert(col < _area[0].size() && "col is out range" ); 
+        assert(static_cast<unsigned>(col) < _area[0].size() && "col is out range" ); 
 
     return _area[row][col];
 }
 
 char Area::Get(int row, int col) const {
-    assert(row < _area.size() && "row is out range" );
+    assert(row >= 0 && "negative row");
+    assert(col >= 0 && "negative col");
+    assert(static_cast<unsigned>(row) < _area.size() && "row is out range" );
 
     if(_area.size())
-        assert(col < _area[0].size() && "col is out range" ); 
+        assert(static_cast<unsigned>(col) < _area[0].size() && "col is out range" ); 
 
     return _area[row][col];
 }
@@ -50,4 +55,4 @@ void Area::Clean() {
             i = '.';
 }
 
-
+} // namespace protocol

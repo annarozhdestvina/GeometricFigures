@@ -5,12 +5,14 @@
 #include <memory>
 #include "../Model/FigureInterface.h"
 
+namespace controller {
+
 class Controller {
 private:
-    std::vector<std::unique_ptr<FigureInterface> > _objects;
+    std::vector<std::unique_ptr<model::FigureInterface> > _objects;
 public:
 
-    void DrawAll(AreaInterface& area);
+    void DrawAll(protocol::AreaInterface& area);
 
     void AddCircle();
 
@@ -20,5 +22,7 @@ public:
 
     void Clean();
 };
+
+} // namespace controller
 
 #endif

@@ -1,9 +1,11 @@
 #include "Triangle.h"
 #include <iostream>
 
-#include "../Drawer/Area.h"
+#include "../../Protocol/AreaInterface.h"
 #include "../Drawer/Line.h"
 #include "../Drawer/DrawerInterface.h"
+
+namespace model {
 
 static DrawerTriangle s_drawerTriangle;
 
@@ -12,7 +14,7 @@ Triangle::Triangle(Point a, Point b, Point c): _a(a), _b(b), _c(c), _defaultDraw
 }
 
 
-bool Triangle::Draw(AreaInterface& area, const DrawerInterface* drawer) const{
+bool Triangle::Draw(protocol::AreaInterface& area, const DrawerInterface* drawer) const{
     if (drawer) 
         return drawer->Draw(this, area);
         
@@ -22,14 +24,16 @@ bool Triangle::Draw(AreaInterface& area, const DrawerInterface* drawer) const{
     return false;
 }
 
-bool DrawerTriangle::Draw(const FigureInterface* object, AreaInterface& area) {
+bool DrawerTriangle::Draw(const FigureInterface* object, protocol::AreaInterface& area) {
     
     if(const Triangle* triangle = dynamic_cast<const Triangle*>(object)) {
-        Drawer::Line(triangle->_a, triangle->_b, area);
-        Drawer::Line(triangle->_b, triangle->_c, area);
-        Drawer::Line(triangle->_c, triangle->_a, area);
+        drawer::Line(triangle->_a, triangle->_b, area);
+        drawer::Line(triangle->_b, triangle->_c, area);
+        drawer::Line(triangle->_c, triangle->_a, area);
         return true;
     }
     return false;
 }
 
+
+} // namespace model

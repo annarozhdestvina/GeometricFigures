@@ -1,6 +1,8 @@
 #ifndef AREAINTERFACE_H
 #define AREAINTERFACE_H
 
+namespace protocol {
+
 class AreaInterface {
 public:
     virtual int GetRows() const = 0;
@@ -11,5 +13,7 @@ public:
 
     virtual void Clean() = 0;
 };
+
+} // namespace protocol
 
 #endif // AREAINTERFACE_H

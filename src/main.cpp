@@ -6,8 +6,8 @@
 #include "View/ConsoleView.h"
 
 int main() {
-    Controller controller;
-    ConsoleView view(&controller);
+    controller::Controller controller;
+    view::ConsoleView view(&controller);
     view.startEventLoop();
 
     return 0;

@@ -7,23 +7,27 @@
 
 #include "../Point/Point.h"
 
+namespace protocol {
+
 class AreaInterface;
 
-namespace Drawer {
+}// namespace protocol
+
+namespace drawer {
    
 class Line {
 
 public:
-    Line(const Point& a, const Point& b, AreaInterface& area);
+    Line(const Point& a, const Point& b, protocol::AreaInterface& area);
 
 private:
-    void horizontal(const Point& a, const Point& b, AreaInterface& area);
+    void horizontal(const Point& a, const Point& b, protocol::AreaInterface& area);
 
-    void vertical(const Point& a, const Point& b, AreaInterface& area);
+    void vertical(const Point& a, const Point& b, protocol::AreaInterface& area);
 
     bool isHorizontal(const Point& a, const Point& b); 
 }; 
 
-} // namespace Drawer
+} // namespace drawer
 
 #endif // LINE_H
