@@ -11,13 +11,15 @@ namespace view {
 
 enum class Choice : char;
 
-class ConsoleView
-{
+class ConsoleView {
 private:
-    controller::Controller *_controller;
+    controller::Controller* _controller;
     protocol::Area _area;
+
 public:
-    ConsoleView(controller::Controller *c): _controller(c), _area(20, 60) {};
+    ConsoleView(controller::Controller* c)
+        : _controller(c)
+        , _area(20, 60) {};
     void displayMenu();
     Choice performChoice();
     void startEventLoop();

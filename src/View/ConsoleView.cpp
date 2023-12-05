@@ -1,18 +1,19 @@
-#include <iostream>
 #include "ConsoleView.h"
+
+#include <iostream>
+
 #include "../Controller/Controller.h"
 
 namespace view {
 
-enum class Choice : char
-{
-    CIRCLE      = 1,
-    SQUARE      = 2,
-    TRIANGLE    = 3,
-    DRAW        = 4,
-    CLEAN       = 5,
-    EXIT        = 0,
-    NONE        = -1,
+enum class Choice : char {
+    CIRCLE = 1,
+    SQUARE = 2,
+    TRIANGLE = 3,
+    DRAW = 4,
+    CLEAN = 5,
+    EXIT = 0,
+    NONE = -1,
 };
 
 void ConsoleView::displayMenu()
@@ -25,28 +26,28 @@ void ConsoleView::displayMenu()
     std::cout << "3. ADD a TRIANGLE" << std::endl;
     std::cout << "4. DRAW" << std::endl;
     std::cout << "5. CLEAN" << std::endl;
-    std::cout << "0. Quit" << std::endl << std::endl;
+    std::cout << "0. Quit" << std::endl
+              << std::endl;
 }
 
-Choice ConsoleView::performChoice()
+Choice
+ConsoleView::performChoice()
 {
     std::cout << "Input a menu item digit: ";
     int number = 0;
     std::cin >> number;
     return static_cast<Choice>(number);
-} 
+}
 
 void ConsoleView::startEventLoop()
 {
-    while (true) 
-    {
+    while (true) {
         displayMenu();
-        switch (performChoice())
-        {
+        switch (performChoice()) {
         case Choice::CIRCLE:
             _controller->AddCircle();
             break;
-        
+
         case Choice::SQUARE:
             _controller->AddSquare();
             break;
@@ -72,7 +73,6 @@ void ConsoleView::startEventLoop()
             std::cout << "Wrong menu item number!";
             continue;
         }
-
     }
 }
 

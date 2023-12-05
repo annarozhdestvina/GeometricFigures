@@ -2,10 +2,10 @@
 #include <vector>
 
 #include "Controller/Controller.h"
-
 #include "View/ConsoleView.h"
 
-int main() {
+int main()
+{
     controller::Controller controller;
     view::ConsoleView view(&controller);
     view.startEventLoop();

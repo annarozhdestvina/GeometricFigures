@@ -40,6 +40,32 @@ main.out: $(BINARIES)
 %.o: %.cpp $(HEADERS)
 		$(CC) $(CFLAG) -c $< -o $@
 
+style_google:
+		-clang-format --style=Google -i *.cpp
+		-clang-format --style=Google -i Model/*.cpp
+		-clang-format --style=Google -i Model/*.h
+		-clang-format --style=Google -i Model/*/*.cpp
+		-clang-format --style=Google -i Model/*/*.h
+		-clang-format --style=Google -i View/*.cpp
+		-clang-format --style=Google -i View/*.h
+		-clang-format --style=Google -i Controller/*.cpp
+		-clang-format --style=Google -i Controller/*.h
+		-clang-format --style=Google -i Protocol/*.h
+		-clang-format --style=Google -i Protocol/*.cpp
+
+style_webkit:
+		-clang-format --style=WebKit -i *.cpp
+		-clang-format --style=WebKit -i Model/*.cpp
+		-clang-format --style=WebKit -i Model/*.h
+		-clang-format --style=WebKit -i Model/*/*.cpp
+		-clang-format --style=WebKit -i Model/*/*.h
+		-clang-format --style=WebKit -i View/*.cpp
+		-clang-format --style=WebKit -i View/*.h
+		-clang-format --style=WebKit -i Controller/*.cpp
+		-clang-format --style=WebKit -i Controller/*.h
+		-clang-format --style=WebKit -i Protocol/*.h
+		-clang-format --style=WebKit -i Protocol/*.cpp
+
 clean:
 	rm -rf *.o *.out
 	rm -rf Model/*/*.o

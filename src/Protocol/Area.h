@@ -1,15 +1,15 @@
 #ifndef AREA_H
 #define AREA_H
 
-#include <vector>
 #include <iostream>
+#include <vector>
 
 #include "AreaInterface.h"
 
 namespace protocol {
 
 class Area : public AreaInterface {
-    using Plot2D_t = std::vector<std::vector<char> >;
+    using Plot2D_t = std::vector<std::vector<char>>;
 
 private:
     int _rows;
@@ -32,6 +32,6 @@ public:
     void Clean() override;
 };
 
-} // protocol
+} // namespace protocol
 
 #endif // AREA_H
