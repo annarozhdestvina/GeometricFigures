@@ -3,9 +3,9 @@ CFLAG=-std=c++17 -Werror -Wall -Wextra -fsanitize=address
 SANITIZER_LFLAGS=-fsanitize=address
 
 SOURCES=main.cpp
-SOURCES+=Model/Circle/Circle.cpp
-SOURCES+=Model/Triangle/Triangle.cpp
-SOURCES+=Model/Square/Square.cpp
+SOURCES+=Model/Figures/Circle/Circle.cpp
+SOURCES+=Model/Figures/Triangle/Triangle.cpp
+SOURCES+=Model/Figures/Square/Square.cpp
 
 SOURCES+=Controller/Controller.cpp
 
@@ -17,9 +17,9 @@ SOURCES+=View/ConsoleView.cpp
 
 HEADERS=Model/FigureInterface.h
 HEADERS+=Model/Point/Point.h
-HEADERS+=Model/Circle/Circle.h
-HEADERS+=Model/Triangle/Triangle.h
-HEADERS+=Model/Square/Square.h
+HEADERS+=Model/Figures/Circle/Circle.h
+HEADERS+=Model/Figures/Triangle/Triangle.h
+HEADERS+=Model/Figures/Square/Square.h
 
 HEADERS+=Controller/Controller.h
 
@@ -69,7 +69,7 @@ style_webkit:
 
 clean:
 	rm -rf *.o *.out
-	rm -rf Model/*/*.o
+	rm -rf Model/*/*/*.o
 	rm -rf Controller/*.o
 	rm -rf View/*.o
 	rm -rf Protocol/*.o

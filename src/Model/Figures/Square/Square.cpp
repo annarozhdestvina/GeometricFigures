@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "../../Protocol/AreaInterface.h"
-#include "../Drawer/DrawerInterface.h"
-#include "../Drawer/Line.h"
+#include "../../../Protocol/AreaInterface.h"
+#include "../../Drawer/DrawerInterface.h"
+#include "../../Drawer/Line.h"
 
 namespace model {
 

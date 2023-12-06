@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "../Model/Circle/Circle.h"
+#include "../Model/Figures/Circle/Circle.h"
 #include "../Model/FigureInterface.h"
 #include "../Model/Point/Point.h"
-#include "../Model/Square/Square.h"
-#include "../Model/Triangle/Triangle.h"
+#include "../Model/Figures/Square/Square.h"
+#include "../Model/Figures/Triangle/Triangle.h"
 #include "../Protocol/AreaInterface.h"
 
 namespace controller {

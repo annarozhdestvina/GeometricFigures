@@ -1,8 +1,8 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 
-#include "../FigureInterface.h"
-#include "../Point/Point.h"
+#include "../../FigureInterface.h"
+#include "../../Point/Point.h"
 
 namespace model {
 

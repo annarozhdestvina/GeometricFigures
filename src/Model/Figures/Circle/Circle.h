@@ -1,9 +1,9 @@
 #ifndef CIRCLE_CIRCLE_H
 #define CIRCLE_CIRCLE_H
 
-#include "../Drawer/DrawerInterface.h"
-#include "../FigureInterface.h"
-#include "../Point/Point.h"
+#include "../../Drawer/DrawerInterface.h"
+#include "../../FigureInterface.h"
+#include "../../Point/Point.h"
 
 namespace model {
 

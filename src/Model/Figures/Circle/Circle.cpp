@@ -3,8 +3,8 @@
 #include <cmath>
 #include <iostream>
 
-#include "../../Protocol/AreaInterface.h"
-#include "../Drawer/DrawerInterface.h"
+#include "../../../Protocol/AreaInterface.h"
+#include "../../Drawer/DrawerInterface.h"
 
 namespace model {
 
