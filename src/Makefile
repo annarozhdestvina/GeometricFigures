@@ -1,5 +1,6 @@
 CC=g++
-CFLAG=-std=c++17 -Werror -Wall -Wextra
+CFLAG=-std=c++17 -Werror -Wall -Wextra -fsanitize=address
+SANITIZER_LFLAGS=-fsanitize=address
 
 SOURCES=main.cpp
 SOURCES+=Model/Circle/Circle.cpp
@@ -35,7 +36,7 @@ all: main.out
 	./main.out
 
 main.out: $(BINARIES)
-	$(CC) $^ -o $@
+	$(CC) $^ -o $@ $(SANITIZER_LFLAGS)
 
 %.o: %.cpp $(HEADERS)
 		$(CC) $(CFLAG) -c $< -o $@

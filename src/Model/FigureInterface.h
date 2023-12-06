@@ -4,8 +4,11 @@
 namespace protocol {
 
 class AreaInterface;
+
 }
+
 namespace model {
+
 class DrawerInterface;
 
 class FigureInterface {

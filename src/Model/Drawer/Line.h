@@ -15,6 +15,7 @@ class AreaInterface;
 
 namespace drawer {
 
+// Часть, из которых рисуются фигуры, содержащие прямые линии. используются рисовальщиками
 class Line {
 public:
     Line(const Point& a, const Point& b, protocol::AreaInterface& area);

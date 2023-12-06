@@ -30,8 +30,7 @@ void ConsoleView::displayMenu()
               << std::endl;
 }
 
-Choice
-ConsoleView::performChoice()
+Choice ConsoleView::performChoice()
 {
     std::cout << "Input a menu item digit: ";
     int number = 0;
